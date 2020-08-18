@@ -1,1 +1,3 @@
-# handlebars-js-learning-path
+# HANDLEBARS JS: LEARNING PATH
+
+
