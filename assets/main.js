@@ -1,10 +1,14 @@
 $(document).ready(function() {
-    var info = $('#handlebars-template').html();
-    var compiled = Handlebars.compile(info);
-    $('#content-inject').html(compiled({doesWhat: 'Handlebars com JQUERY'}));
+    const template = $('#handlebars-template').html();
+    const compiledTemplate = Handlebars.compile(template);
+    $('#content-inject').html(compiledTemplate({
+        doesWhat: 'Handlebars com JQUERY'
+    }));
 });
 
-// var info = document.getElementById('handlebars-template').innerHTML;
-// var compiled = Handlebars.compile(info);
-// var x = document.getElementById('content-inject');
-// x.innerHTML = compiled({doesWhat: 'Handlebars com JS'});
+const template = document.getElementById('handlebars-template').innerHTML;
+const compiledTemplate = Handlebars.compile(template);
+const contentInject = document.getElementById('content-inject');
+contentInject.innerHTML = compiledTemplate({
+    doesWhat: 'Handlebars com JS'
+});
