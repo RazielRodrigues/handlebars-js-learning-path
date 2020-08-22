@@ -80,3 +80,17 @@ Por fim o nosso HTML ficará algo como:
             </html>
 
 ## Criando templates com dados JSON
+
+Vamos consumir a API da marvel e criar algo com ela usando o HB:
+- para usar a API é necessario ter uma conta e uma chave
+
+https://developer.marvel.com/
+
+Vamos usar o AXIOS para fazer as requisições HTTP:
+
+https://github.com/axios/axios
+
+1. Vamos instalar o AXIOS no projeto com a tag
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
