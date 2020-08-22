@@ -61,6 +61,9 @@ Por fim o nosso HTML ficará algo como:
             <body>
                 <main id="content-inject"></main>
                 
+
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
                 <script id="handlebars-template" type="text/x-handlebars-template">
                 <h1>{{HelloWorld}}</h1>
                 </script>
@@ -75,3 +78,5 @@ Por fim o nosso HTML ficará algo como:
                 </script>
             </body>
             </html>
+
+## Criando templates com dados JSON
