@@ -1,0 +1,48 @@
+Service Endpoint
+The Marvel Comics API’s base endpoint is http(s)://gateway.marvel.com/.
+
+Machine-Readable Documentation
+All API endpoints are documented as machine-readable representations using the swagger-doc specification. These representations are available at http://gateway.marvel.com/docs
+
+
+Initial request:
+
+Request Url: http://gateway.marvel.com/v1/public/comics
+Request Method: GET
+Params: {
+  "apikey": "your api key",
+  "ts": "a timestamp",
+  "hash": "your hash"
+}
+Headers: {
+  Accept: */*
+}
+
+Initial response:
+
+Status Code: 200
+Access-Control-Allow-Origin: *
+Date: Wed, 18 Dec 2013 22:00:55 GMT
+Connection: keep-alive
+ETag: f0fbae65eb2f8f28bdeea0a29be8749a4e67acb3
+Content-Length: 54943
+Content-Type: application/json
+Subsequent request:
+
+Request Url: http://gateway.marvel.com/v1/public/comics
+Request Method: GET
+Params: {
+  "apikey": "your api key",
+  "ts": "a timestamp",
+  "hash": "your hash"
+}
+Headers: {
+  Accept: */*
+  If-None-Match: f0fbae65eb2f8f28bdeea0a29be8749a4e67acb3
+}
+Subsequent response:
+
+Status Code: 304
+Access-Control-Allow-Origin: *
+Date: Wed, 18 Dec 2013 22:03:20 GMT
+Connection: keep-alive

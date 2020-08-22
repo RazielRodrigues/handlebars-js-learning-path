@@ -94,3 +94,6 @@ https://github.com/axios/axios
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+2. Codigo da requisição HTTP
+
+        

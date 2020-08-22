@@ -10,7 +10,9 @@
     <main id="content-inject"></main>
     
     <script id="handlebars-template" type="text/x-handlebars-template">
-      <h1>{{HelloWorld}}</h1>
+      {{#each results}}
+        <p>{{pageCount}}</p>
+      {{/each}}
     </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -9,6 +9,9 @@
 const template = document.getElementById('handlebars-template').innerHTML;
 const compiledTemplate = Handlebars.compile(template);
 const contentInject = document.getElementById('content-inject');
-contentInject.innerHTML = compiledTemplate({
-    HelloWorld: 'Hello World!'
+
+axios.get('https://gateway.marvel.com:443/v1/public/comics?apikey=6d0cf4d29f7366f7f15d8f9aa401bfe9')
+.then(function(response){
+  const x = response.data.data;
+  contentInject.innerHTML = compiledTemplate({x});
 });
