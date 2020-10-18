@@ -79,21 +79,106 @@ Por fim o nosso HTML ficará algo como:
             </body>
             </html>
 
-## Criando templates com dados JSON
+## Criando templates com dados JSON e EACH helper
 
-Vamos consumir a API da marvel e criar algo com ela usando o HB:
-- para usar a API é necessario ter uma conta e uma chave
+Dentro da função de compilação passar os dados em JSON que podem ser também a resposta de uma API JSON,
+por enquanto vamos ver com os dados de um array:
 
-https://developer.marvel.com/
+        contentInject.innerHTML = compiledTemplate({
+        Users: [
+            {
+            "id": 1,
+            "name": "Leanne Graham",
+            "username": "Bret",
+            "email": "Sincere@april.biz",
+            "address": {
+                "street": "Kulas Light",
+                "suite": "Apt. 556",
+                "city": "Gwenborough",
+                "zipcode": "92998-3874",
+                "geo": {
+                "lat": "-37.3159",
+                "lng": "81.1496"
+                }
+            },
+            "phone": "1-770-736-8031 x56442",
+            "website": "hildegard.org",
+            "company": {
+                "name": "Romaguera-Crona",
+                "catchPhrase": "Multi-layered client-server neural-net",
+                "bs": "harness real-time e-markets"
+            }
+            }
+        ]
+        });
 
-Vamos usar o AXIOS para fazer as requisições HTTP:
+Dessa forma conseguimos acessar os dados do JSON por níveis, usando o helper {{each NomeObjeto}} {{#each}}
 
-https://github.com/axios/axios
+    <script id="handlebars-template" type="text/x-handlebars-template">
+      <ul>
+        {{#each Users}}
+          <li>{{id}}</li>
+          <li>{{name}}</li>
+        {{/each}}
+      </ul>
+    </script>
 
-1. Vamos instalar o AXIOS no projeto com a tag
+A tag de template fica dessa forma assim conseguimos acessar o primeiro nivel do array, para acessar outros niveis do array
+podemos usar:
 
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        {{#each Users}}
+          <li>{{address.street}}</li>
+        {{/each}}
 
-2. Codigo da requisição HTTP
+ou
+        {{#each Users}}
+          <li>{{address/street}}</li>
+        {{/each}}
 
-        
+ou
+
+        {{#each Users}}
+            {{#with address}}
+                <li>{{street}}</li>
+            {{/with}}
+        {{/each}}
+
+para subir um contexto usamos:
+
+        {{#each Users}}
+            {{#with company}}
+                //pega o nome da companhia
+                <li>{{name}}</li>
+                //pega o nome do cliente no contexto acima
+                <li>{{../name}}</li>
+            {{/with}}
+        {{/each}}
+
+
+<small>
+    {
+      "id": 1,
+      "name": "Leanne Graham", //1. nivel = {{../name}}
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+        }
+      },
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",  //2. nivel = {{name}}
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    },
+</small>
+
+## Operadores lógicos e unless
