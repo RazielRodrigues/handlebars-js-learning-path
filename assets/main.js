@@ -1,19 +1,6 @@
 //TODO: NEED TO PRETTIFY THIS CODE
 $(document).ready(function() {
 
-// Your web app's Firebase configuration
-var firebaseConfig = {
-  apiKey: "AIzaSyD7aufFH_9g9Yebs3voDl8rBFNtC7tqSzg",
-  authDomain: "sandbox-rz.firebaseapp.com",
-  databaseURL: "https://sandbox-rz.firebaseio.com",
-  projectId: "sandbox-rz",
-  storageBucket: "sandbox-rz.appspot.com",
-  messagingSenderId: "980484561616",
-  appId: "1:980484561616:web:e72ed3f1c5a7927298dcd5"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
   var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL.split('&'),
@@ -50,28 +37,14 @@ firebase.initializeApp(firebaseConfig);
   $.ajax("data/profiles.json").done(function(data) {
 
     //TODO: THINK IN A BEST WAY TO DO THAT
-    // if ($("body").hasClass("profile-details")) {
-    //   var profileID = getUrlParameter("id");
-    //   $('#content-inject').html(compiledTemplate(data.Users[profileID]));
-    // }else{
-    //   $('#content-inject').html(compiledTemplate(data));
-    // }
-
-
-    var db = firebase.database().ref();
     if ($("body").hasClass("profile-details")) {
-      // var profileID = getUrlParameter("id");
-      // $('#content-inject').html(compiledTemplate(data.Users[profileID]));
+      var profileID = getUrlParameter("id");
+      $('#content-inject').html(compiledTemplate(data.Users[profileID]));
     }else{
-      dbRef.on('value', function(snap){
-        $('#content-inject').html(compiledTemplate(snap.val()));
-      });
+      $('#content-inject').html(compiledTemplate(data));
     }
 
   });
-
-
-
 
   //TODO: CREATE A BIOGRAPHY HIDE/CLOSE
   $(document).on("click", ".actions", function(e){

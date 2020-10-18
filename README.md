@@ -194,25 +194,79 @@ podendo ser encadeado com else if e tambem com else, ficando algo como:
 
 ## HELPERS: FUNÇÕES DE AJUDAS
 
-Com os helpers podemos registrar nossos proprios blocos {{CapitalizarLetra 'parametro'}} que nos ajudam a formatar os textos.
+Com os helpers podemos registrar nossos proprios blocos {{CapitalizarLetra 'parametro'}} que nos ajudam a formatar os textos ou outras coisas.
 
-...
+Para usar um helper primeiro devemos registrar ele:
+
+            //TIPO 1: Esse helper ele pega apenas um dado age como {{#if}}
+            Handlebars.registerHelper("makeBold", function(parametro){
+                return new Handlebars.SafeString("<strong>"+parametro+"</strong>");
+            });
+
+            //NO HTML:
+            street: {{makeBold street}}
+
+            //TIPO 2: Esse helper ele age como os bloc {{#each}} {{#with}}
+            Handlebars.registerHelper("makeTitle", function(options){
+                return new Handlebars.SafeString("<h5>"+options.fn(this)+"</h5>");
+            });
+
+            //NO HTML:
+            street: {{makeBold street}}
+            {{#makeTitle}}
+                zipcode: {{zipcode}}
+            {{/makeTitle}}
 
 ## DELEGAÇÃO DE EVENTOS NOS ELEMENTOS DO TEMPLATE
 
-...
+Como o template é renderizado depois da pagina os objetos nao são identificados pelo dom, para isso precisamos
+criar uma função que busque pelos elementos HTML pós renderização e assim poder capturar os eventos:
+
+            //IF CLICK IN BUTTON YOU CAN HANDLE THE EVENT.
+            $(document).on("click", ".actions", function(e){
+                e.preventDefault();
+                console.log("click");
+            });
 
 
 ## ESCOLHENDO UM DADO ESPECIFICIO NA ESTRUTURA
 
-...
+Para escolher um dado especidifico na estrutura vamos passar o indice do array clicado via parametro GET
+depois vamos procurar na URL o valor do ID que foi enviado e assim renderizar em outra página apenas o dado especifico.
+
+1. passar dado pelo HTML da pagina INDEX para montar o parametro GET:
+
+        //Dessa forma pega o indice do elemento renderizado começando em 0
+        <a href="details.html?id={{@index}}" class="btn btn-primary">
+
+2. Varrer URL:
+
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+
+3. O HTML da pagina details nao precisa do EACH ja que vamos exibir o individual
+
+4. Vamos fazer uma verificação, caso seja sem a classe details no body exibe a lista de todos se tiver o details exibe so um:
+
+         if ($("body").hasClass("profile-details")) {
+           var profileID = getUrlParameter("id");
+           $('#content-inject').html(compiledTemplate(data.Users[profileID]));
+         }else{
+           $('#content-inject').html(compiledTemplate(data));
+         }
 
 ## HANDLEBARS: PARTIALS
 
 ...
-
-## ARMAZENANDO JSON NO FIREBASE
-
-...
-
-
