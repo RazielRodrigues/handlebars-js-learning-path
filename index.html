@@ -6,29 +6,57 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>HANDLEBARS LEARNING PATH</title>
 </head>
-<body class="container">
-    <main id="content-inject"></main>
+<body>
+    
+    <!-- TODO: MAKE PARTIALS -->
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #e06b23;">
 
-    <script id="handlebars-template" type="text/x-handlebars-template">
-      {{#each Users}}
-        <div class="card" style="width: 18rem;">
-          <img src="{{image}}" class="card-img-top" alt="{{name}}">
-          <div class="card-body">
-            <h5 class="card-title">{{name}}</h5>
-            <p class="card-text">
-              {{email}}
-            </p>
-            <ul class="list-group list-group-flush">
-              {{#with address}}
-                <li class="list-group-item">street: {{street}}</li>
-                <li class="list-group-item">suite: {{suite}}</li>
-                <li class="list-group-item">city: {{city}}</li>
-                <li class="list-group-item">zipcode: {{zipcode}}</li>
-              {{/with}}
-            </ul>
+        <a class="navbar-brand" href="index.html">
+          <img src="https://api.iconify.design/logos-handlebars.svg" 
+          width="50" height="50" class="d-inline-block align-top" alt="HANDLEBARS LEARNING PATH" loading="lazy">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" href="index.html">HANDLEBARS LEARNING PATH<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Profiles</a>
           </div>
         </div>
-      {{/each}}
+
+      </nav>
+
+
+
+
+    <main class="container" id="content-inject"></main>
+
+    <script id="handlebars-template" type="text/x-handlebars-template">
+      <section class="row">
+        {{#each Users}}
+          <div class="card text-center m-1 container" style="width: 18rem;">
+            <img src="{{image}}" class="card-img-top" alt="{{name}}" title="{{name}}">
+            <div class="card-body">
+              <h5 class="card-title">{{name}}</h5>
+              <p class="card-text">email: {{email}}</p>
+              <div class="card-text">
+                {{#with address}}
+                  street: {{street}}
+                  <br>
+                  suite: {{suite}}
+                  <br>
+                  city: {{city}}
+                  <br>
+                  zipcode: {{zipcode}}
+                {{/with}}
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </section>
     </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

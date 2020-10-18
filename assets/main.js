@@ -38,6 +38,19 @@ contentInject.innerHTML = compiledTemplate({
         "city": "Wisokyburgh",
         "zipcode": "90566-7771"
       }
+    },
+    {
+      "id": 3,
+      "name": "Raziel Rodrigues",
+      "username": "Raziel",
+      "email": "Raziel@Rodrigues.tv",
+      "image": "https://www.w3schools.com/howto/img_avatar.png",
+      "address": {
+        "street": "RZ Plains",
+        "suite": "Suite 879",
+        "city": "Braziel",
+        "zipcode": "90566-7771"
+      }
     }
   ]
 });
