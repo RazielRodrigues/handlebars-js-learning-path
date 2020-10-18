@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/RazielMiranda/handlebars-js-learning-path#readme",
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-connect": "^5.7.0"
   }
 }
