@@ -17,9 +17,10 @@ contentInject.innerHTML = compiledTemplate({
   Users: [
     {
       "id": 1,
-      "name": "Leanne Graham",
-      "username": "Bret",
-      "email": "Sincere@april.biz",
+      "name": "Brian Graham",
+      "username": "Brian",
+      "email": "Brian@april.biz",
+      "image": "https://www.w3schools.com/howto/img_avatar.png",
       "address": {
         "street": "Kulas Light",
         "suite": "Apt. 556",
@@ -29,9 +30,10 @@ contentInject.innerHTML = compiledTemplate({
     },
     {
       "id": 2,
-      "name": "Ervin Howell",
-      "username": "Antonette",
-      "email": "Shanna@melissa.tv",
+      "name": "Ronald Howell",
+      "username": "Ronald",
+      "email": "Ronald@melissa.tv",
+      "image": "https://www.w3schools.com/howto/img_avatar.png",
       "address": {
         "street": "Victor Plains",
         "suite": "Suite 879",

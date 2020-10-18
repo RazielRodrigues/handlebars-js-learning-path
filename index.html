@@ -6,16 +6,29 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>HANDLEBARS LEARNING PATH</title>
 </head>
-<body>
+<body class="container">
     <main id="content-inject"></main>
 
     <script id="handlebars-template" type="text/x-handlebars-template">
-      <ul>
-        {{#each Users}}
-          <li>{{id}}</li>
-          <li>{{name}}</li>
-        {{/each}}
-      </ul>
+      {{#each Users}}
+        <div class="card" style="width: 18rem;">
+          <img src="{{image}}" class="card-img-top" alt="{{name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">
+              {{email}}
+            </p>
+            <ul class="list-group list-group-flush">
+              {{#with address}}
+                <li class="list-group-item">street: {{street}}</li>
+                <li class="list-group-item">suite: {{suite}}</li>
+                <li class="list-group-item">city: {{city}}</li>
+                <li class="list-group-item">zipcode: {{zipcode}}</li>
+              {{/with}}
+            </ul>
+          </div>
+        </div>
+      {{/each}}
     </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
