@@ -5,7 +5,7 @@
           "name": "Brian Graham",
           "username": "Brian",
           "email": "Brian@april.biz",
-          "image": "https://www.w3schools.com/howto/img_avatar.png",
+          "image": "https://www.svgrepo.com/show/6688/man-with-mustache-avatar.svg",
           "address": {
             "street": "Kulas Light",
             "suite": "Apt. 556",
@@ -18,7 +18,7 @@
           "name": "Ronald Howell",
           "username": "Ronald",
           "email": "Ronald@melissa.tv",
-          "image": "https://www.w3schools.com/howto/img_avatar.png",
+          "image": "https://www.svgrepo.com/show/68212/nerd-man-with-curly-hair-and-circular-eyeglasses-avatar.svg",
           "address": {
             "street": "Victor Plains",
             "suite": "Suite 879",
@@ -43,7 +43,7 @@
           "id": 3,
           "name": "Wrong Zen",
           "username": "Wrong",
-          "email": null,
+          "email": "wron@mail.com",
           "image": false,
           "address": {
             "street": "Wrong city",
@@ -54,10 +54,23 @@
         },
         {
           "id": 4,
-          "name": "Steve jack",
-          "username": "",
-          "email": null,
-          "image": "https://www.w3schools.com/howto/img_avatar.png",
+          "name": "Claudia jack",
+          "username": "Claudia",
+          "email": "jack@op.com",
+          "image": "https://www.svgrepo.com/show/48030/female-sportive-avatar-image.svg",
+          "address": {
+            "street": "lake city",
+            "suite": "Suite 1111",
+            "city": "irã",
+            "zipcode": "90566-7771"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Nioni Opas ",
+          "username": "Nioni",
+          "email": "Nioni@null.ls",
+          "image": "https://www.svgrepo.com/show/68961/male-profile-avatar-without-face.svg",
           "address": {
             "street": "lake city",
             "suite": "Suite 1111",

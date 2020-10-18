@@ -1,73 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title>HANDLEBARS LEARNING PATH</title>
+    <link rel="shortcut icon" href="https://api.iconify.design/logos-handlebars.svg" type="image/x-icon">
+    <title>HANDLEBARS LEARNING PATH: DETAILS</title>
 </head>
 <body class="profile-details">
-    
-    <!-- TODO: MAKE PARTIALS -->
-      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #e06b23;">
 
-        <a class="navbar-brand" href="index.html">
-          <img src="https://api.iconify.design/logos-handlebars.svg" 
-          width="50" height="50" class="d-inline-block align-top" alt="HANDLEBARS LEARNING PATH" loading="lazy">
-        </a>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #e06b23;">
+      <a class="navbar-brand">
+        <img src="https://api.iconify.design/logos-handlebars.svg" 
+        width="50" height="50" class="d-inline-block align-top" alt="HANDLEBARS LEARNING PATH" loading="lazy">
+      </a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" href="index.html">HANDLEBARS LEARNING PATH<span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="#">Profiles</a>
-          </div>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" >HANDLEBARS LEARNING PATH<span class="sr-only">(current)</span></a>
         </div>
+      </div>
+    </nav>
 
-      </nav>
-
-    <h1>DETAIL'S</h1>
-    
     <main class="container" id="content-inject">
-      Loading...
+      <br>
+      <p>Loading...</p>
     </main>
 
-    <script id="handlebars-template" type="text/x-handlebars-template">
+    <script id="main-template" type="text/x-handlebars-template">
       <section class="row">
-          <div class="card text-center m-1 container" style="width: 18rem;">
+        <div class="card text-center col-4 mx-auto mt-2">
 
-            {{#if image}}
-              <img src="{{image}}" class="card-img-top" alt="{{name}}" title="{{name}}">
-            {{else}}
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png" class="card-img-top" alt="{{name}}" title="{{name}}">
-            {{/if}}
+          {{#if image}}
+            <img src="{{image}}" class="card-img-top" alt="{{name}}" title="{{name}}">
+          {{else}}
+            <img src="https://www.svgrepo.com/show/5089/do-not-dry.svg" class="card-img-top" alt="{{name}}" title="{{name}}">
+          {{/if}}
 
-            <div class="card-body">
-                <h5 class="card-title">{{name}}</h5>
-
-                {{#if email}}
-                  <p class="card-text">
-                    email: {{email}}
-                  </p>
-                {{else if username}}
-                  <p class="card-text">
-                    username: {{username}}
-                  </p>
-                {{else}}
-                  <p class="card-text">
-                    No information!
-                  </p>
-                {{/if}}
-
-                <a href="index.html" class="btn btn-primary">
-                  BACK
-                </a>
-            </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">{{> AddressPartial}}</h5>
+            <a href="index.html" class="btn btn-primary">Back</a>
           </div>
 
+        </div>
       </section>
     </script>
 
