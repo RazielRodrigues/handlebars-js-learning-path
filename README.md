@@ -182,4 +182,37 @@ podendo ser encadeado com else if e tambem com else, ficando algo como:
                 </p>
             {{/if}}
 
-## ARMAZENANDO JSON NO SERVER E FAZENDO REQUISIÇÃO AJAX
+## RENDERIZANDO TEMPLATE COM DADOS JSON EXTERNOS USANDO JQUERY
+
+            $(document).ready(function() {
+            const template = $('#handlebars-template').html();
+            const compiledTemplate = Handlebars.compile(template);
+            $.ajax("data/profiles.json").done(function(data) {
+                $('#content-inject').html(compiledTemplate(data));
+            });
+            });
+
+## HELPERS: FUNÇÕES DE AJUDAS
+
+Com os helpers podemos registrar nossos proprios blocos {{CapitalizarLetra 'parametro'}} que nos ajudam a formatar os textos.
+
+...
+
+## DELEGAÇÃO DE EVENTOS NOS ELEMENTOS DO TEMPLATE
+
+...
+
+
+## AVANÇANDO DENTRO DA ESTRUTURA DE DADOS
+
+...
+
+## HANDLEBARS: PARTIALS
+
+...
+
+## ARMAZENANDO JSON NO FIREBASE
+
+...
+
+

@@ -64,16 +64,18 @@
 
                 <div class="card-text">
                   {{#with address}}
-                    street: {{street}}
+                    street: {{makeBold street}}
                     <br>
                     suite: {{suite}}
                     <br>
                     city: {{city}}
                     <br>
-                    zipcode: {{zipcode}}
+                    {{#makeTitle}}
+                      zipcode: {{zipcode}}
+                    {{/makeTitle}}
                   {{/with}}
                 </div>
-
+                <button class="btn btn-primary">Go somewhere</button>
             </div>
           </div>
 
