@@ -1,0 +1,26 @@
+{
+  "name": "handlebars-js-learning-path",
+  "version": "1.0.0",
+  "description": "Handlebars learning path by: https://github.com/RazielMiranda",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RazielMiranda/handlebars-js-learning-path.git"
+  },
+  "keywords": [
+    "handlebars",
+    "learning"
+  ],
+  "author": "Raziel Miranda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RazielMiranda/handlebars-js-learning-path/issues"
+  },
+  "homepage": "https://github.com/RazielMiranda/handlebars-js-learning-path#readme",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  }
+}
