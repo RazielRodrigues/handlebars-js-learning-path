@@ -1,0 +1,15 @@
+<script id="details-partial" type="text/x-handlebars-template">
+  <div class="card-text">
+    {{#with address}}
+      street: {{makeBold street}}
+      <br>
+      suite: {{suite}}
+      <br>
+      city: {{city}}
+      <br>
+      {{#makeTitle}}
+        zipcode: {{zipcode}}
+      {{/makeTitle}}
+    {{/with}}
+  </div>
+</script>
