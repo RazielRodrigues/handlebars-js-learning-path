@@ -256,9 +256,10 @@ depois vamos procurar na URL o valor do ID que foi enviado e assim renderizar em
             }
         };
 
-3. O HTML da pagina details nao precisa do EACH ja que vamos exibir o individual
-
-4. Vamos fazer uma verificação, caso seja sem a classe details no body exibe a lista de todos se tiver o details exibe so um:
+3. O HTML da pagina details nao precisa do EACH ja que vamos exibir o individual, como nos queremos apenas um elemento do array
+nos tiramos o each assim nos precisamos passar o indice do array que queremos renderizar então para isso vamos fazer uma verificação, 
+caso seja sem a classe details no body exibe a lista de todos se tiver o details exibe so um, e quando achado essa classe passa o ID
+da URL como indice do array assim exibindo apenas um perfil na pagina details.
 
          if ($("body").hasClass("profile-details")) {
            var profileID = getUrlParameter("id");
@@ -269,4 +270,3 @@ depois vamos procurar na URL o valor do ID que foi enviado e assim renderizar em
 
 ## HANDLEBARS: PARTIALS
 
-...
