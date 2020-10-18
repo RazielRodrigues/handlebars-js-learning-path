@@ -1,3 +1,4 @@
+//TODO: NEED TO PRETTIFY THIS CODE
 $(document).ready(function() {
 
   var getUrlParameter = function getUrlParameter(sParam) {
@@ -27,20 +28,22 @@ $(document).ready(function() {
   
   const compiledTemplate = Handlebars.compile(template);
 
-
   $.ajax("data/profiles.json").done(function(data) {
+
+    //TODO: THINK IN A BEST WAY TO DO THAT
     if ($("body").hasClass("profile-details")) {
       var profileID = getUrlParameter("id");
       $('#content-inject').html(compiledTemplate(data.Users[profileID]));
     }else{
       $('#content-inject').html(compiledTemplate(data));
     }
+
   });
 
 
 
 
-
+  //TODO: CREATE A BIOGRAPHY HIDE/CLOSE
   $(document).on("click", ".actions", function(e){
     e.preventDefault();
     console.log("click");
