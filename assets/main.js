@@ -1,5 +1,20 @@
 $(document).ready(function() {
 
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
+
   Handlebars.registerHelper("makeBold", function(parametro){
     return new Handlebars.SafeString("<strong>"+parametro+"</strong>");
   });
@@ -11,12 +26,22 @@ $(document).ready(function() {
   const template = $('#handlebars-template').html();
   
   const compiledTemplate = Handlebars.compile(template);
-  
+
+
   $.ajax("data/profiles.json").done(function(data) {
-    $('#content-inject').html(compiledTemplate(data));
+    if ($("body").hasClass("profile-details")) {
+      var profileID = getUrlParameter("id");
+      $('#content-inject').html(compiledTemplate(data.Users[profileID]));
+    }else{
+      $('#content-inject').html(compiledTemplate(data));
+    }
   });
 
-  $(document).on("click", ".btn", function(e){
+
+
+
+
+  $(document).on("click", ".actions", function(e){
     e.preventDefault();
     console.log("click");
   });
