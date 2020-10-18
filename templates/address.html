@@ -1,0 +1,19 @@
+<script id="address-partial" type="text/x-handlebars-template">
+  {{#with address}}
+    <div class="card-text">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            {{#makeTitle}}
+              Street: {{street}}
+            {{/makeTitle}}
+          </li>
+          <li class="list-group-item">
+              Suite: {{suite}}
+          </li>
+          <li class="list-group-item">
+              Sity: {{city}}
+          </li>
+        </ul>
+    </div>
+  {{/with}}
+</script>

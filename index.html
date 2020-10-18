@@ -8,23 +8,50 @@
     <title>HANDLEBARS LEARNING PATH: HOME</title>
 </head>
 <body>
-    <main class="card text-center" id="content-inject">
-      
-      <div class="card-header">
-        Featured
-      </div>
 
-      <div class="card-body">
-        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-          <span class="sr-only">Loading...</span>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #e06b23;">
+      <a class="navbar-brand">
+        <img src="https://api.iconify.design/logos-handlebars.svg" 
+        width="50" height="50" class="d-inline-block align-top" alt="HANDLEBARS LEARNING PATH" loading="lazy">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" >HANDLEBARS LEARNING PATH<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.html">Profiles</a>
         </div>
       </div>
+    </nav>
 
-      <div class="card-footer text-muted">
-        2 days ago
-      </div>
-
+    <main class="container" id="content-inject">
+        <h1>Loading...</h1>
     </main>
+
+    <script id="main-template" type="text/x-handlebars-template">
+      <section class="row">
+        {{#each Users}}
+        <div class="card" style="width: 20rem;">
+
+          {{#if image}}
+            <img src="{{image}}" class="card-img-top" alt="{{name}}" title="{{name}}">
+          {{else}}
+            <img src="https://www.svgrepo.com/show/5089/do-not-dry.svg" class="card-img-top" alt="{{name}}" title="{{name}}">
+          {{/if}}
+
+          <div class="card-body text-center">
+            <h5 class="card-title">{{name}}</h5>
+            <h5 class="card-title">{{email}}</h5>
+            <a href="details.html/?id={{@index}}" class="btn btn-primary">See address</a>
+          </div>
+
+        </div>
+        {{/each}}
+      </section>
+    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
