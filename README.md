@@ -127,19 +127,19 @@ A tag de template fica dessa forma assim conseguimos acessar o primeiro nivel do
 podemos usar:
 
         {{#each Users}}
-          <li>{{address.street}}</li>
+          {{address.street}}
         {{/each}}
 
 ou
         {{#each Users}}
-          <li>{{address/street}}</li>
+            {{address/street}}
         {{/each}}
 
 ou
 
         {{#each Users}}
             {{#with address}}
-                <li>{{street}}</li>
+                {{street}}
             {{/with}}
         {{/each}}
 
@@ -154,33 +154,32 @@ para subir um contexto usamos:
             {{/with}}
         {{/each}}
 
+## Operadores lógicos
 
-<small>
-    {
-      "id": 1,
-      "name": "Leanne Graham", //1. nivel = {{../name}}
-      "username": "Bret",
-      "email": "Sincere@april.biz",
-      "address": {
-        "street": "Kulas Light",
-        "suite": "Apt. 556",
-        "city": "Gwenborough",
-        "zipcode": "92998-3874",
-        "geo": {
-          "lat": "-37.3159",
-          "lng": "81.1496"
-        }
-      },
-      "phone": "1-770-736-8031 x56442",
-      "website": "hildegard.org",
-      "company": {
-        "name": "Romaguera-Crona",  //2. nivel = {{name}}
-        "catchPhrase": "Multi-layered client-server neural-net",
-        "bs": "harness real-time e-markets"
-      }
-    },
-</small>
+O if no handlebars verifica se propriedade tem algum valor, se retornar false, não exibe aquilo
+podendo ser encadeado com else if e tambem com else, ficando algo como:
 
-## Operadores lógicos e unless
+            {{#if image}}
+                <img src="{{image}}" class="card-img-top" alt="{{name}}" title="{{name}}">
+            {{else}}
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png" class="card-img-top" alt="{{name}}" title="{{name}}">
+            {{/if}}
 
+
+
+            {{#if email}}
+                <p class="card-text">
+                email: {{email}}
+                </p>
+            {{else if username}}
+                <p class="card-text">
+                username: {{username}}
+                </p>
+            {{else}}
+                <p class="card-text">
+                No information!
+                </p>
+            {{/if}}
+
+O operador unless funciona como:
 
