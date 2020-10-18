@@ -1,19 +1,18 @@
 <script id="address-partial" type="text/x-handlebars-template">
   {{#with address}}
-    <div class="card-text">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            {{#makeTitle}}
               Street: {{street}}
-            {{/makeTitle}}
           </li>
           <li class="list-group-item">
               Suite: {{suite}}
           </li>
           <li class="list-group-item">
-              Sity: {{city}}
+              City: {{city}}
+          </li>
+          <li class="list-group-item">
+              Zipcode: {{zipcode}}
           </li>
         </ul>
-    </div>
   {{/with}}
 </script>
