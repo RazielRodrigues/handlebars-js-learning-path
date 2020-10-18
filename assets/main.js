@@ -20,6 +20,8 @@ $(document).ready(function() {
     return new Handlebars.SafeString("<strong>"+parametro+"</strong>");
   });
 
+  Handlebars.registerPartial("AddressPartial", $("#details-partial").html());
+
   Handlebars.registerHelper("makeTitle", function(options){
     return new Handlebars.SafeString("<h5>"+options.fn(this)+"</h5>");
   });
