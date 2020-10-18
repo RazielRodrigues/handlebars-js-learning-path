@@ -270,3 +270,78 @@ da URL como indice do array assim exibindo apenas um perfil na pagina details.
 
 ## HANDLEBARS: PARTIALS
 
+O partials no handlebars consiste em voce separar pequenas partes do codigo e usar elas 
+apenas fazendo a referencia de uma tag {{> nomePartials}}
+
+Devemos criar uma nova tag de template o ideal é essa tag de template ficar em um arquivo separado,
+pois dai consegue chamar ela mais organizadamente, por exemplo com o PHP se usaria o include com JS vamos fazer
+uma chamada AJAX.
+
+1. Criar a tag:
+
+        <script id="details-partial" type="text/x-handlebars-template">
+        <div class="card-text">
+            {{#with address}}
+            street: {{makeBold street}}
+            <br>
+            suite: {{suite}}
+            <br>
+            city: {{city}}
+            <br>
+            {{#makeTitle}}
+                zipcode: {{zipcode}}
+            {{/makeTitle}}
+            {{/with}}
+        </div>
+        </script>
+
+2. Registrar o Partial:
+
+        Handlebars.registerPartial("AddressPartial", $("#details-partial").html());
+
+3. Fazer a chamada do arquivo que contem o partial:
+
+        /*
+            Lembrando que a tag script do partial esta em outro arquivo em outro lugar
+            o que vamos fazer é incluir esse arquivo onde queremos usar o Partial,
+            após registrar ele no arquivo main.js junto com as outras funções,
+            vamos resgatar o arquivo que contém o template partial e embedar ele no body.
+            após isso nos fazemos a chamada do partials, onde passamos o nome dele é o nome
+            da tag que queremos renderizar (tag do AJAX)
+        */
+        $.ajax("detailpartial.html").done(function(partial) {
+            $("body").append(partial);
+            Handlebars.registerPartial("AddressPartial", $("#details-partial").html());
+        });
+
+4. Após isso basta chamar o partials com uma tag {{> nomePartials}}
+
+            <script id="handlebars-template" type="text/x-handlebars-template">
+                {{#each Users}}
+                <div class="card text-center m-1 container" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+
+                        {{#if email}}
+                        <p class="card-text">
+                            email: {{email}}
+                        </p>
+                        {{else if username}}
+                        <p class="card-text">
+                            username: {{username}}
+                        </p>
+                        {{else}}
+                        <p class="card-text">
+                            No information!
+                        </p>
+                        {{/if}}
+                        //Chamando vai renderizar os dados de endereço
+                        {{> AddressPartial}}
+                    </div>
+                </div>
+                {{/each}}
+            </script>
+
+Perceba que chamo o partials dentro de outra tag de template esse [e o intuito, reutilizar de forma que 
+nao fique muito codigo e tudo bem mais limpos, se tiver um partial em dois lugares, basta editar um arquivo
+que ja edita em todos os lugares.
