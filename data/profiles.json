@@ -1,0 +1,69 @@
+{
+    "Users": [
+        {
+          "id": 1,
+          "name": "Brian Graham",
+          "username": "Brian",
+          "email": "Brian@april.biz",
+          "image": "https://www.w3schools.com/howto/img_avatar.png",
+          "address": {
+            "street": "Kulas Light",
+            "suite": "Apt. 556",
+            "city": "Gwenborough",
+            "zipcode": "92998-3874"
+          }
+        },
+        {
+          "id": 2,
+          "name": "Ronald Howell",
+          "username": "Ronald",
+          "email": "Ronald@melissa.tv",
+          "image": "https://www.w3schools.com/howto/img_avatar.png",
+          "address": {
+            "street": "Victor Plains",
+            "suite": "Suite 879",
+            "city": "Wisokyburgh",
+            "zipcode": "90566-7771"
+          }
+        },
+        {
+          "id": 3,
+          "name": "Raziel Rodrigues",
+          "username": "Raziel",
+          "email": "Raziel@Rodrigues.tv",
+          "image": "https://www.w3schools.com/howto/img_avatar.png",
+          "address": {
+            "street": "RZ Plains",
+            "suite": "Suite 879",
+            "city": "Braziel",
+            "zipcode": "90566-7771"
+          }
+        },
+        {
+          "id": 4,
+          "name": "Wrong Zen",
+          "username": "Wrong",
+          "email": null,
+          "image": false,
+          "address": {
+            "street": "Wrong city",
+            "suite": "Suite 1111",
+            "city": "Zenirã",
+            "zipcode": "90566-7771"
+          }
+        },
+        {
+          "id": 5,
+          "name": "Steve jack",
+          "username": "",
+          "email": null,
+          "image": "https://www.w3schools.com/howto/img_avatar.png",
+          "address": {
+            "street": "lake city",
+            "suite": "Suite 1111",
+            "city": "irã",
+            "zipcode": "90566-7771"
+          }
+        }
+      ]
+}
