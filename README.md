@@ -203,7 +203,7 @@ Com os helpers podemos registrar nossos proprios blocos {{CapitalizarLetra 'para
 ...
 
 
-## AVANÇANDO DENTRO DA ESTRUTURA DE DADOS
+## ESCOLHENDO UM DADO ESPECIFICIO NA ESTRUTURA
 
 ...
 
