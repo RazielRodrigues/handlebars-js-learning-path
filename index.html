@@ -29,32 +29,54 @@
 
       </nav>
 
-
-
-
-    <main class="container" id="content-inject"></main>
+    <main class="container" id="content-inject">
+      Loading...
+    </main>
 
     <script id="handlebars-template" type="text/x-handlebars-template">
       <section class="row">
         {{#each Users}}
+
           <div class="card text-center m-1 container" style="width: 18rem;">
-            <img src="{{image}}" class="card-img-top" alt="{{name}}" title="{{name}}">
+
+            {{#if image}}
+              <img src="{{image}}" class="card-img-top" alt="{{name}}" title="{{name}}">
+            {{else}}
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png" class="card-img-top" alt="{{name}}" title="{{name}}">
+            {{/if}}
+
             <div class="card-body">
-              <h5 class="card-title">{{name}}</h5>
-              <p class="card-text">email: {{email}}</p>
-              <div class="card-text">
-                {{#with address}}
-                  street: {{street}}
-                  <br>
-                  suite: {{suite}}
-                  <br>
-                  city: {{city}}
-                  <br>
-                  zipcode: {{zipcode}}
-                {{/with}}
-              </div>
+                <h5 class="card-title">{{name}}</h5>
+
+                {{#if email}}
+                  <p class="card-text">
+                    email: {{email}}
+                  </p>
+                {{else if username}}
+                  <p class="card-text">
+                    username: {{username}}
+                  </p>
+                {{else}}
+                  <p class="card-text">
+                    No information!
+                  </p>
+                {{/if}}
+
+                <div class="card-text">
+                  {{#with address}}
+                    street: {{street}}
+                    <br>
+                    suite: {{suite}}
+                    <br>
+                    city: {{city}}
+                    <br>
+                    zipcode: {{zipcode}}
+                  {{/with}}
+                </div>
+
             </div>
           </div>
+
         {{/each}}
       </section>
     </script>

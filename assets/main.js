@@ -51,6 +51,32 @@ contentInject.innerHTML = compiledTemplate({
         "city": "Braziel",
         "zipcode": "90566-7771"
       }
+    },
+    {
+      "id": 4,
+      "name": "Wrong Zen",
+      "username": "Wrong",
+      "email": null,
+      "image": false,
+      "address": {
+        "street": "Wrong city",
+        "suite": "Suite 1111",
+        "city": "Zenirã",
+        "zipcode": "90566-7771"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Steve jack",
+      "username": "",
+      "email": null,
+      "image": "https://www.w3schools.com/howto/img_avatar.png",
+      "address": {
+        "street": "lake city",
+        "suite": "Suite 1111",
+        "city": "irã",
+        "zipcode": "90566-7771"
+      }
     }
   ]
 });
